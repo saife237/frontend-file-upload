@@ -1,0 +1,16 @@
+<div>
+    <h2>Upload PDF Files</h2>
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <label for="path">Destination Path:</label>
+      <input formControlName="path" type="text" required /><br /><br />
+      
+      <label for="files">Choose PDF files:</label>
+      <input type="file" (change)="onFileChange($event)" accept="application/pdf" multiple required /><br /><br />
+      
+      <button type="submit">Upload and Extract Text</button>
+    </form>
+    
+    <p *ngIf="message">{{ message }}</p>
+    <pre *ngIf="text">{{ text }}</pre>
+  </div>
+  
